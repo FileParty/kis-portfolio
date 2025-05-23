@@ -1,4 +1,4 @@
-import { DarkModeButton } from "~/entities/theme/ui/drak-mode-button";
+import { DarkModeButton } from "~/entities/theme/ui/dark-mode-button";
 
 export default function Home() {
   return (
