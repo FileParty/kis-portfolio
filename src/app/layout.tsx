@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "~/assets/globals.css";
 import { Header } from "~/entities/header/ui";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="flex flex-col h-screen p-5 justify-flex-start">
+      <body>
         <Header />
         {children}
       </body>

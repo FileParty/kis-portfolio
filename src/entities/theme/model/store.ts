@@ -6,7 +6,7 @@ export const createThemeSlice: StateCreator<
   [],
   [],
   ThemeState & ThemeAction
-> = (set, get) => ({
+> = (set) => ({
   isDarkMode: false,
   toggleDarkMode: () => set((state: ThemeState) => ({ isDarkMode: !state.isDarkMode })),
 });

@@ -9,12 +9,14 @@ export const DarkModeButton = () => {
   const { isDarkMode, toggleDarkMode } = useStore();
 
   return (
-    <IconButton 
-      size="large" 
+    <IconButton  
       onClick={toggleDarkMode}
       sx={{
         overflow: 'hidden',
         position: 'relative',
+        width: '64px',
+        height: '64px',
+        backgroundColor: 'white',
       }}
     >
       <Slide 
@@ -35,7 +37,7 @@ export const DarkModeButton = () => {
             animation: isDarkMode ? 'rotateIn 0.3s ease-in-out' : 'rotateOut 0.3s ease-in-out',
           }}
         >
-          <DarkMode />
+          <DarkMode sx={{ fontSize: '64px' }} />
         </div>
       </Slide>
       <Slide 
@@ -46,7 +48,7 @@ export const DarkModeButton = () => {
         timeout={300}
       >
         <div className="absolute flex items-center justify-center w-full h-full">
-          <LightMode />
+          <LightMode sx={{ fontSize: '64px' }} />
         </div>
       </Slide>
     </IconButton>
