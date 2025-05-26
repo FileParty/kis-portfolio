@@ -5,9 +5,8 @@ import { DarkMode, LightMode } from '@mui/icons-material';
 import { IconButton, Slide } from "@mui/material";
 
 export const DarkModeButton = () => {
-
   const { isDarkMode, toggleDarkMode } = useStore();
-
+  
   return (
     <IconButton  
       onClick={toggleDarkMode}
