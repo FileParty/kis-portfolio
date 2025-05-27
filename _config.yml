@@ -1,0 +1,24 @@
+# Jekyll 처리에서 _next 폴더를 포함
+include:
+  - "_next"
+
+# 기본 설정들
+plugins:
+  - jekyll-relative-links
+
+# GitHub Pages 호환 설정
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# 빌드에서 제외할 파일들
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - yarn.lock
+  - next.config.ts
+  - tsconfig.json
+  - tailwind.config.js
+  - postcss.config.mjs
+  - README.md
