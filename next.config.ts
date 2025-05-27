@@ -13,17 +13,6 @@ console.log('isGitHubPages:', isGitHubPages);
 console.log('Will use basePath:', isProd && isGitHubPages ? "/kis-portfolio" : "NONE");
 console.log('============================');
 
-// GitHub Pages용 .nojekyll 파일 생성
-if (isProd && isGitHubPages) {
-  const nojekyllPath = join(process.cwd(), 'out', '.nojekyll');
-  try {
-    writeFileSync(nojekyllPath, '');
-    console.log('.nojekyll file created for GitHub Pages');
-  } catch (error) {
-    console.log('.nojekyll creation will happen after build');
-  }
-}
-
 const nextConfig: NextConfig = {
   output: "export",
   basePath: isProd && isGitHubPages ? "/kis-portfolio" : "",
