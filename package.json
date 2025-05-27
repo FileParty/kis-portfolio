@@ -5,10 +5,11 @@
   "homepage": "https://FileParty.github.io/kis-portfolio",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "cross-env NODE_ENV=production next build",
     "start": "next start",
+    "preview": "yarn build && npx serve out -p 3000 --single",
     "lint": "next lint",
-    "predeploy": "npm run build",
+    "predeploy": "cross-env NODE_ENV=production GITHUB_PAGES=true yarn build",
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
@@ -32,6 +33,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
+    "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "gh-pages": "^6.3.0",
