@@ -1,9 +1,6 @@
-import { DarkModeButton } from "~/entities/theme/ui/dark-mode-button";
-
 export default function Home() {
   return (
-    <div className="flex">
-      <DarkModeButton />
+    <div className="flex w-full h-120">
       <h1>Hello World</h1>
     </div>
   );

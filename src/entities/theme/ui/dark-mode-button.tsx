@@ -15,7 +15,7 @@ export const DarkModeButton = () => {
         position: 'relative',
         width: '64px',
         height: '64px',
-        backgroundColor: 'white',
+        color: !isDarkMode ? 'white' : 'black',
       }}
     >
       <Slide 
