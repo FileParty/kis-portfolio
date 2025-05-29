@@ -15,12 +15,12 @@ export const DarkModeButton = () => {
         position: 'relative',
         width: '64px',
         height: '64px',
-        color: !isDarkMode ? 'white' : 'black',
+        color: isDarkMode ? 'white' : 'black',
       }}
     >
       <Slide 
         direction="left" 
-        in={isDarkMode} 
+        in={!isDarkMode} 
         mountOnEnter 
         unmountOnExit
         timeout={300}
@@ -41,7 +41,7 @@ export const DarkModeButton = () => {
       </Slide>
       <Slide 
         direction="right" 
-        in={!isDarkMode} 
+        in={isDarkMode} 
         mountOnEnter 
         unmountOnExit
         timeout={300}

@@ -14,8 +14,8 @@ export const Header = () => {
       <div className={clsx(
         'w-full h-[82px] fixed top-0 left-0 right-0 z-50 flex items-center justify-between border-b-4 p-2 pl-16 pr-16',
         {
-          'bg-gray-300 text-black border-black-400': isDarkMode,
-          'bg-gray-900 text-white border-white-800': !isDarkMode,
+          'bg-gray-300 text-black border-black-400': !isDarkMode,
+          'bg-gray-900 text-white border-white-800': isDarkMode,
         }
       )}>
         <div className="header__logo">
