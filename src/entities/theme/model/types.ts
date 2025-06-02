@@ -1,4 +1,9 @@
+import { RefObject } from "react";
 import { z } from "zod";
+
+export type DarkModeIconRef = {
+  iconButtonRef: RefObject<HTMLButtonElement | null>;
+}
 
 export const ThemeSchema = z.object({
   isDarkMode: z.boolean(),

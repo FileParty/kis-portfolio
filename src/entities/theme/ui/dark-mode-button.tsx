@@ -2,14 +2,18 @@
 
 import useStore from "~/lib/store";
 import { DarkMode, LightMode } from '@mui/icons-material';
-import { IconButton, Slide } from "@mui/material";
+import { IconButton } from "@mui/material";
+import { useRef } from "react";
+import useDarkModeButton from "~/entities/theme/lib/dark-mode-button";
 
 export const DarkModeButton = () => {
-  const { isDarkMode, toggleDarkMode } = useStore();
-  
+  const { isDarkMode } = useStore();
+  const iconButtonRef = useRef<HTMLButtonElement>(null);
+  const { handleClick } = useDarkModeButton({ iconButtonRef });
   return (
-    <IconButton  
-      onClick={toggleDarkMode}
+    <IconButton
+      ref={iconButtonRef}
+      onClick={handleClick}
       sx={{
         overflow: 'hidden',
         position: 'relative',
@@ -18,38 +22,11 @@ export const DarkModeButton = () => {
         color: isDarkMode ? 'white' : 'black',
       }}
     >
-      <Slide 
-        direction="left" 
-        in={!isDarkMode} 
-        mountOnEnter 
-        unmountOnExit
-        timeout={300}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            animation: isDarkMode ? 'rotateIn 0.3s ease-in-out' : 'rotateOut 0.3s ease-in-out',
-          }}
-        >
-          <DarkMode sx={{ fontSize: '64px' }} />
-        </div>
-      </Slide>
-      <Slide 
-        direction="right" 
-        in={isDarkMode} 
-        mountOnEnter 
-        unmountOnExit
-        timeout={300}
-      >
-        <div className="absolute flex items-center justify-center w-full h-full">
-          <LightMode sx={{ fontSize: '64px' }} />
-        </div>
-      </Slide>
+      { isDarkMode ? (
+        <DarkMode sx={{ fontSize: '64px' }} />
+      ) : (
+        <LightMode sx={{ fontSize: '64px' }} />
+      )}
     </IconButton>
   )
 }
