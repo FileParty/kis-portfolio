@@ -3,22 +3,21 @@
 import useStore from "~/lib/store";
 import { DarkMode, LightMode } from '@mui/icons-material';
 import { IconButton } from "@mui/material";
-import { useRef } from "react";
+import { memo, useRef } from "react";
 import useDarkModeButton from "~/entities/theme/lib/dark-mode-button";
+import { useShallow } from 'zustand/react/shallow'
 
-export const DarkModeButton = () => {
-  const { isDarkMode } = useStore();
+const DarkModeButtonComponent = () => {
+  const isDarkMode = useStore(useShallow(state => state.isDarkMode));
   const iconButtonRef = useRef<HTMLButtonElement>(null);
   const { handleClick } = useDarkModeButton({ iconButtonRef });
+
   return (
     <IconButton
+      className="w-[64px] h-[64px] overflow-hidden relative"
       ref={iconButtonRef}
       onClick={handleClick}
       sx={{
-        overflow: 'hidden',
-        position: 'relative',
-        width: '64px',
-        height: '64px',
         color: isDarkMode ? 'white' : 'black',
       }}
     >
@@ -30,3 +29,5 @@ export const DarkModeButton = () => {
     </IconButton>
   )
 }
+
+export const DarkModeButton = memo(DarkModeButtonComponent);

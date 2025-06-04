@@ -1,7 +1,7 @@
 import { RefObject } from "react";
 import { z } from "zod";
 
-export type DarkModeIconRef = {
+export type DarkModeIconProps = {
   iconButtonRef: RefObject<HTMLButtonElement | null>;
 }
 

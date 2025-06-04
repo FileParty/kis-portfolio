@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
   },
   trailingSlash: true,
   distDir: 'out',
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
 };
 
 export default nextConfig;
